@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="../Common.Build.props"/>
+
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>$(ProjectDir)..\libc.eventbus.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <SignAssembly Condition="'$(Configuration)'=='Release'">true</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\libc.eventbus\**\*.cs"
+             Exclude="..\libc.eventbus\obj\**\*.cs"/>
+  </ItemGroup>
+
+</Project>

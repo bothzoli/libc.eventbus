@@ -1,0 +1,24 @@
+<Project>
+
+  <PropertyGroup>
+    <Version>7.1.2</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>bothzoli</Authors>
+    <Product>An in-memory event bus for services to communicate in-process</Product>
+    <Description>Forked from https://github.com/sfmohassel/libc.eventbus to provide strongly named assembly</Description>
+    <RepositoryUrl>https://github.com/bothzoli/libc.eventbus</RepositoryUrl>
+    <LangVersion>latest</LangVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\"/>
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>..\out\</OutputPath>
+  </PropertyGroup>
+
+</Project>
