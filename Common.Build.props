@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Version>7.1.3</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Saeed Farahi Mohassel</Authors>
+    <Authors>Saeed Farahi Mohassel, bothzoli</Authors>
     <Product>An in-memory event bus for services to communicate in-process</Product>
     <RepositoryUrl>https://github.com/sfmohassel/libc.eventbus</RepositoryUrl>
     <LangVersion>8.0</LangVersion>
