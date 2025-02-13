@@ -1,0 +1,38 @@
+name: libc.eventbus-ci
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build and run tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.x
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Build solution
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Run tests
+      run: dotnet test --configuration Release --no-restore --verbosity normal --logger "trx;logfilename=TestResults.trx" --collect:"XPlat Code Coverage" --results-directory TestResults
+
+    - name: Publish test results
+      uses: bibipkins/dotnet-test-reporter@v1.4.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        comment-title: Unit Test Results
+        results-path: ./TestResults/*.trx
+        coverage-path: ./TestResults/**/coverage.cobertura.xml
+        coverage-type: cobertura
